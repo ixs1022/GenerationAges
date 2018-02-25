@@ -29,14 +29,13 @@ public class GenerationAges{
       }
       while(target < 0);
       
-      boolean ageNotFound = true;
       while(generationX + millenial + iGeneration <= target ){
+         generationX++;
          millenial = generationX * CHILD_TO_PARENT;
          iGeneration = generationX * GRANDCHILD_TO_PARENT;
-         generationX++;
       }
-      percentError = ((generationX-1 + millenial + iGeneration) - target) / (target *1.0);
-      System.out.printf("The Parent is %d years old\nThe Child is %d years old\nThe Grandchild is %d years old", generationX-1, Math.round(millenial), Math.round(iGeneration));
+      percentError = ((generationX + millenial + iGeneration) - target) / (target *1.0);
+      System.out.printf("The Parent is %d years old\nThe Child is %d years old\nThe Grandchild is %d years old", generationX, Math.round(millenial), Math.round(iGeneration));
       System.out.printf("\nPercent Error: %.3f%%",percentError);
    }
 }
